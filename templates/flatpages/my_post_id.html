@@ -35,7 +35,7 @@
 
            <tr>
                <td>{{ my_post_id.title }}</td>
-               <td>{{ my_post_id.content }}</td>
+               <td>{{ my_post_id.content|safe }}</td>
                <td>{{ my_post_id.post_created_at }}</td>
                <td>{{ my_post_id.price }}</td>
                <td>{{ my_post_id.post_author }}</td>

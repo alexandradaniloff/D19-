@@ -44,30 +44,21 @@
                    <a style="color:#292929; font-size: 12px;" href="{% url 'post_detail' p.id  %}">{{ p.title }}</a>
                         <div/>
                </td>
-               <td>{{ p.content|truncatechars:300 }}</td>
+               <td>{{ p.content|truncatechars:300|safe }}</td>
                <td>{{ p.post_created_at }}</td>
-
                 <td>{{ p.price }}</td>
                <td>{{ p.post_author }}</td>
                <td>{{ p.categories }}</td>
-
-
                <td>{% for c in p.PostComment.all %}
-
                    {{ c.content|truncatechars:150 }}
-
                    {% endfor %}
                </td>
                <td>{% for c in p.PostComment.all %}
-
                    {{ c.comment_author }}
-
                    {% endfor %}
                </td>
                <td>{% for c in p.PostComment.all %}
-
                    {{ c.comment_created_at }}
-
                    {% endfor %}
                </td>
 

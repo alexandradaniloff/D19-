@@ -54,7 +54,7 @@
                    <a style="color:#292929; font-size: 12px;" href="{% url 'my_post_detail' p.id  %}">{{ p.title }}</a>
                        <div/>
                </td>
-               <td>{{ p.content|truncatechars:300 }}</td>
+               <td>{{ p.content|truncatechars:300|safe }}</td>
                <td>{{ p.post_created_at }}</td>
 
                 <td>{{ p.price }}</td>

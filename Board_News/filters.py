@@ -11,7 +11,7 @@ class PostFilter(FilterSet):
         fields = {
            # поиск по названию
            'title': ['istartswith'],
-           #'categories': ['iexact'],
+           'categories': ['exact'],
         }
 
 class PersonFilter(FilterSet):
