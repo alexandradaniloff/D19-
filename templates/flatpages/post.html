@@ -29,7 +29,6 @@
                <td>Цена</td>
                <td>Автор</td>
                <td>Категория</td>
-               <td>Изображения</td>
                <td>Комметарий</td>
                <td>Автор комментария</td>
                <td>Дата комментария</td>
@@ -41,32 +40,34 @@
            <tr>
 
                <td>
+                   <div style="border: 2px solid #ccc; border-radius: 10px; padding: 5px; margin-bottom: 10px; background-color: #f8f9fa;">
                    <a style="color:#292929; font-size: 12px;" href="{% url 'post_detail' p.id  %}">{{ p.title }}</a>
+                        <div/>
                </td>
                <td>{{ p.content|truncatechars:300 }}</td>
                <td>{{ p.post_created_at }}</td>
 
                 <td>{{ p.price }}</td>
                <td>{{ p.post_author }}</td>
-               <td>{{ p.type }}</td>
-               <td>{{ p.image }}</td>
+               <td>{{ p.categories }}</td>
+
 
                <td>{% for c in p.PostComment.all %}
-                   {% if c.status %}
+
                    {{ c.content|truncatechars:150 }}
-                   {% endif %}
+
                    {% endfor %}
                </td>
                <td>{% for c in p.PostComment.all %}
-                   {% if c.status %}
+
                    {{ c.comment_author }}
-                   {% endif %}
+
                    {% endfor %}
                </td>
                <td>{% for c in p.PostComment.all %}
-                   {% if c.status %}
+
                    {{ c.comment_created_at }}
-                   {% endif %}
+
                    {% endfor %}
                </td>
 

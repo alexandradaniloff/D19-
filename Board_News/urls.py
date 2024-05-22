@@ -13,7 +13,8 @@ urlpatterns = [
 
    path('', HomePage.as_view(), name='mainpost'),
    path('post/', PostList.as_view(), name='post'),
-   path('mypost/', MyPostList.as_view(), name='my_post'),
+   path('my_post/', MyPostList.as_view(), name='my_post'),
+   path('my_post/<int:pk>/', MyPostDetail.as_view(), name='my_post_detail'),
 
    path('post/create/', PostCreate.as_view(), name='post_create'),
    path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),

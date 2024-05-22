@@ -3,10 +3,17 @@
 
 <!-- Название у нас будет products -->
 {% block title %}
-news
+
 {% endblock title %}
 
 {% block content %}
+
+<h1  align="center" style="color:Gray; font-family: Trebuchet MS; font-size: 25px">Личный кабинет пользователя: {{ user.username }}</h1>
+<h1  align="center" style="color:Gray; font-family: Trebuchet MS; font-size: 25px">Подписаться на категорию</h1>
+<button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'person_cabinet' %}">Отклики</a></button>
+<button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'my_post' %}">Мои объявления</a></button>
+<button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'post_create' %}">Создать объявление</a></button>
+<button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'category_name' %}">Подписаться на категорию</a></button>
     <h3>{{ time_now|date:'d M Y' }}</h3>
     <h1>Все категории</h1>
     {# Добавляем форму, которая объединяет набор полей, которые будут отправляться в запросе #}
@@ -14,12 +21,12 @@ news
 
 
     {% if category_name %}
-
-       <table>
+<div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px; background-color: #f8f9fa;">
+     <table>
            <tr>
 
-               <td> Категории</td>
-               <td>Ваши подписки</td>
+               <td>&emsp;Все категории</td>&emsp;
+               <td>&emsp;Ваши подписки</td>&emsp;
 
            </tr>
 
@@ -35,13 +42,13 @@ news
                 в следующем столбце описание, и т.д.  -->
 
                <td>&emsp;
-                    <a href="{% url 'category_list' cat.id  %}">{{ cat.name }}</a>
+                   <a style="color:Gray; font-family: Trebuchet MS; font-size: 15px", >{{ cat.name }}</a>
                </td>
                <td>
                    {% if request.user in cat.subscribers.all %}
-                   <a href="{% url 'unsubscribe' cat.id  %}">отменить подписку</a>
+                   <button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'unsubscribe' cat.id  %}">отменить подписку</a></button>
                    {% else %}
-                   <a href="{% url 'subscribe' cat.id  %}">подписаться</a>
+                   <button><a class="btn btn-primary" style="color:Gray; font-family: Trebuchet MS; font-size: 15px", href="{% url 'subscribe' cat.id  %}">подписаться</a></button>
                    {% endif %}
                </td>
 
@@ -49,13 +56,12 @@ news
            {% endfor %}
 
        </table>
-
+</div>
     {% else %}
        <!-- Если новостей нет, говорим, что новостей нет ;) -->
        <h2>Новостей нет!</h2>
 
     {% endif %}
 
-    <button> <a href="/news/"> Главная </a></button>
 
 {% endblock content %}

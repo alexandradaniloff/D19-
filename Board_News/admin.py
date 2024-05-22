@@ -4,7 +4,6 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from .models import *
 
-
 #from ckeditor_uploader.widgets import CKEditorUploadingWidget
 class PostAdminForm(forms.ModelForm):
     text = forms.CharField(label='Текст', widget=CKEditorUploadingWidget())

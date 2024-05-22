@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
-
+    #'Board_News.apps.BoardNewsConfig',
     'django.contrib.sites',
     'django.contrib.flatpages',
 
@@ -179,7 +179,13 @@ EMAIL_USE_SSL = False  # Яндекс использует ssl, подробне
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'alexandradaniloff@mail.ru'
 
+STATIC_URL = 'static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {

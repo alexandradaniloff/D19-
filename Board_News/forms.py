@@ -1,15 +1,12 @@
-from django import forms
-from django.core.exceptions import ValidationError
+
 from django.contrib.auth.models import User
 from .models import Post, Comment, Category
 from django import forms
+from django.contrib import admin
 from django.forms import ModelForm
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from string import hexdigits
-import random
-
 from django.conf import settings
-from django.core.mail import send_mail
+from ckeditor.widgets import CKEditorWidget
 
 
 
